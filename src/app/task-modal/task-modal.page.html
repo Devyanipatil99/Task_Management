@@ -1,0 +1,51 @@
+<!-- <ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>task-modal</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">task-modal</ion-title>
+    </ion-toolbar>
+  </ion-header>
+</ion-content> -->
+
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{ task.id ? 'Edit Task' : 'Add Task' }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismissModal()">Close</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label position="floating">Title</ion-label>
+    <ion-input [(ngModel)]="task.title"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Description</ion-label>
+    <ion-textarea [(ngModel)]="task.description"></ion-textarea>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Priority</ion-label>
+    <ion-select [(ngModel)]="task.priority">
+      <ion-select-option value="Low">Low</ion-select-option>
+      <ion-select-option value="Medium">Medium</ion-select-option>
+      <ion-select-option value="High">High</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Due Date</ion-label>
+    <ion-datetime display-format="YYYY-MM-DD" [(ngModel)]="task.dueDate"></ion-datetime>
+  </ion-item>
+
+  <ion-button expand="block" (click)="saveTask()">Save Task</ion-button>
+</ion-content>
+
